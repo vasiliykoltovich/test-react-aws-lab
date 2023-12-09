@@ -56,5 +56,4 @@ jobs:
         with:
           repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-react-ui
           qtd-images: 2 
-          repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-react-api
-          qtd-images: 2
+          
