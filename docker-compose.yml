@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  react-api:
+    image: aws-react-api
+    container_name: aws-react-api
+    build: ./api
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongo
+
+  react-ui:
+    image: aws-react-ui
+    container_name: aws-react-ui
+    build: ./ui
+    depends_on:
+      - mongo 
+      - react-api
+    environment:
+      - REACT_APP_APPLICATION_VERSION = v1.0
+    env_file:
+      - app.env  
+    ports:
+      - "3005:3000"
+    volumes:
+      - .:/lab-aws-react-docker-mongo
+      - /lab-aws-react-docker-mongo/node_modules
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  
