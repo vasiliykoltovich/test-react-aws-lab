@@ -31,16 +31,16 @@ jobs:
         id: build-image-app
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: react-app
-          IMAGE_TAG: aws-react-app
+          ECR_REPOSITORY: aws-docker-react-app
+          IMAGE_TAG: aws-docker-react-app
         run: |
-          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/react-app:v1.1 .
+          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-docker-react-app:v1.0 .
           echo "Pushing image to ECR..."
-          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/react-app:v1.1
-          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/react-app/deploy:1.1"
+          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-docker-react-app:v1.0
+          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-docker-react-app/deploy:1.0"
 
       - name: Remove old versions
         uses: LeiaInc/devops-delete-old-aws-ecr-images@v1
         with:
-          repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/react-app
+          repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/aws-docker-react-app
           qtd-images: 2 
