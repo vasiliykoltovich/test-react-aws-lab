@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:19.6.0-alpine
+FROM node:latest
 # Set the working directory within the container
 WORKDIR /lab-aws-react-docker-mongo-ui/
 
