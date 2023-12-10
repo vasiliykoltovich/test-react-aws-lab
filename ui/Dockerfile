@@ -14,7 +14,7 @@ ENV REACT_APP_TEXT_MESSAGE "Hello team  - greetings!!!"
 COPY . /lab-aws-react-docker-mongo-ui/
 
 RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/react-scripts/bin
-RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/react-scripts/bin/react-scripts.js
+RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/.bin/react-scripts
 RUN npm run build
 
 # Command to run after container will be started
