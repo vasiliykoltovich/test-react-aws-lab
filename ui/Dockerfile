@@ -15,7 +15,7 @@ ENV REACT_APP_TEXT_MESSAGE "Hello team  - greetings!!!"
 COPY . /lab-aws-react-docker-mongo-ui/
 
 # Command to run after container will be started
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
 
 # Open port 3000 for container 
 EXPOSE 3000
