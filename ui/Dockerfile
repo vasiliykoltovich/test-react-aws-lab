@@ -13,7 +13,8 @@ ENV REACT_APP_TEXT_MESSAGE "Hello team  - greetings!!!"
 # Copy the rest of the application code to the container
 COPY . /lab-aws-react-docker-mongo-ui/
 
-RUN yarn build
+RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/.bin/react-scripts
+RUN npm run build
 
 # Command to run after container will be started
 CMD ["npm", "start"]
