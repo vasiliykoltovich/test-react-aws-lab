@@ -34,10 +34,10 @@ jobs:
           ECR_REPOSITORY: aws-react-api
           IMAGE_TAG: aws-react-api
         run: |
-          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-api:v1.0 ./api
+          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-backend:v1.0 ./api
           echo "Pushing image to ECR..."
-          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-api:v1.0
-          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-api/deploy:1.0"
+          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-backend:v1.0
+          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-backend/deploy:1.0"
           
       - name: Build, tag, and push UI image to Amazon ECR
         id: build-image-ui
@@ -46,14 +46,14 @@ jobs:
           ECR_REPOSITORY: aws-react-ui
           IMAGE_TAG: aws-react-ui
         run: |
-          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-ui:v1.0 ./ui
+          docker build -t 609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-frontend:v1.0 ./ui
           echo "Pushing image to ECR..."
-          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-ui:v1.0
-          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-ui/deploy:1.0"    
+          docker push 609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-frontend:v1.0
+          echo ":: set-output name=image::609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-frontend/deploy:1.0"    
 
       - name: Remove old versions
         uses: LeiaInc/devops-delete-old-aws-ecr-images@v1
         with:
-          repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/devlab-ui
+          repo-name: 609050058821.dkr.ecr.eu-central-1.amazonaws.com/mydevlab-backend
           qtd-images: 2 
           
