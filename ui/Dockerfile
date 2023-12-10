@@ -7,8 +7,7 @@ WORKDIR /lab-aws-react-docker-mongo-ui/
 COPY package*.json /lab-aws-react-docker-mongo-ui/
 
 # Install dependencies
-RUN npm install express mongoose axios react-scripts --save
-
+RUN npm install express mongoose axios
 ENV REACT_APP_TEXT_MESSAGE "Hello team  - greetings!!!"
 
 # Copy the rest of the application code to the container
