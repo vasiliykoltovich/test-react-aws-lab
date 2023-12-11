@@ -8,13 +8,17 @@ COPY package*.json /lab-aws-react-docker-mongo-ui/
 
 # Install dependencies
 RUN npm install
+RUN npm install
 
 ENV REACT_APP_TEXT_MESSAGE "Hello team  - greetings!!!"
 
 # Copy the rest of the application code to the container
 COPY . /lab-aws-react-docker-mongo-ui/
 
+RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/react-scripts/bin
+RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/.bin/react-scripts
 RUN npm run build
+
 
 ## Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
 FROM nginx:1.15
