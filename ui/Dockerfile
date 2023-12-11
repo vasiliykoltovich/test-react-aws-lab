@@ -18,7 +18,7 @@ RUN chmod a+x /lab-aws-react-docker-mongo-ui/node_modules/.bin/react-scripts
 RUN npm run build
 
 # Command to run after container will be started
-CMD ["npm", "start"]
+CMD ["npm", "start", "--open", "false"]
 
 # Open port 3000 for container 
 EXPOSE 3000
