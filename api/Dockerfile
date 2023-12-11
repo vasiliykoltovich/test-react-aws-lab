@@ -1,13 +1,11 @@
 FROM node:19.6.0-alpine
 # Create app directory
-WORKDIR /lab-aws-react-docker-mongo-api/
+WORKDIR /app/
 # Install app dependencies
-COPY package*.json /lab-aws-react-docker-mongo-api/
+COPY package*.json /app/
 
 RUN npm install
 # Copy app source code
-COPY . /lab-aws-react-docker-mongo-api/
+COPY . /app/
 
-#Expose port and start application
-EXPOSE 8080
 CMD [ "npm", "start" ]

@@ -1,11 +1,13 @@
 const express = require('express');
+require('dotenv').config();
 const connectDb = require('./src/connection');
 const User = require('./src/User.model');
 const cors = require('cors');
 
 const app = express();
 
-const PORT = 8080;
+const PORT = process.env.API_PORT;
+console.log("Connection port of API:", PORT)
 app.use(cors());
 
 app.get('/users', async (req, res) => {

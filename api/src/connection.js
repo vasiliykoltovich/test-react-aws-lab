@@ -1,5 +1,7 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
-const connection = "mongodb://35.158.205.139:27017/mongo-test";
+const connection = process.env.MONGODB_URL
+console.log("Connection url to mongo:", connection)
 const connectDb = () => {
   return mongoose.connect(connection);
 };

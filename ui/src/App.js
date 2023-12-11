@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 
-const apiUrl = `http://localhost:8080`;
+const apiUrl = process.env.REACT_APP_API_URL;
+console.log("APP URL: ", apiUrl)
+// const apiUrl = `http://localhost:8085`;
 
 class App extends Component {
   state = {
@@ -12,6 +14,7 @@ class App extends Component {
 
   async createUser() {
     await axios.get(apiUrl + '/user-create');
+    console.log("sending request /createUser to:", apiUrl+ '/user-create')
     this.loadUsers();
   }
 
